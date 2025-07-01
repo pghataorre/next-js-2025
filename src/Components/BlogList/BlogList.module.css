@@ -1,0 +1,68 @@
+.blog-list-container {
+  padding: 0;
+  list-style-type: none;
+  margin: 0 var(--spacing-l) 0; 
+  overflow: auto;
+  height: 600px;
+}
+
+.blog-list-container  .mix-item {
+  padding: 0 var(--spacing-m) var(--spacing-xl) 0;
+  border-bottom: 2px solid var(--white);
+  margin: 0 0 var(--spacing-xl) 0;
+}
+
+.blog-list-container  .mix-item:last-child {
+  border-bottom: none;
+}
+
+.blog-list-container .title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-list-container  h2 {
+  flex-direction: row;
+  align-items: center;
+}
+
+.blog-list-container  h2 .blog-creator-details {
+  font-size: var(--font-s);
+}
+
+.title-container a {
+  color: inherit;
+  text-decoration: underline;
+  color: var(--red);
+  cursor: pointer;
+  margin-right: var(--spacing-l);
+}
+
+.title-container a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.delete-button {
+  border: 2px solid var(--black);
+  padding: var(--spacing-xs);
+  background-color: var(--white);
+  font-size: var(--font-s);
+  color: var(--black);
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  padding: var(--spacing-xs);
+  background-color: var(--red);
+}
+
+.delete-button:disabled,
+.delete-button:disabled:hover {
+  opacity: 0.3;
+}
+
+.count-label {
+  font-size: var(--font-l);
+  font-weight: var(--fontWeight-xxl);
+}

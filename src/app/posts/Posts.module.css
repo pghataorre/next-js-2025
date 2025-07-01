@@ -1,0 +1,28 @@
+
+  .blog-details {
+  margin: var(--spacing-m) 0 0;
+}
+
+.blog-details li {
+  padding: 0 0 var(--spacing-l) 0;
+}
+
+.blog-details p {
+  font-size: var(--font-l);
+  margin: var(--spacing-m) 0 0; 
+}
+
+.blog-detail-sub-title {
+  display: block;
+  font-weight: 500;
+}
+
+.nav-container {
+    margin: var(--spacing-s) 0;
+}
+
+.review-list {
+    margin: var(--spacing-s) 0;  
+}
+
+ 

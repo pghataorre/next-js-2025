@@ -1,0 +1,9 @@
+.product-list-item {
+    border: 1px solid var(--white);
+    padding: var(--spacing-m);
+    font-size: var(--font-m);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

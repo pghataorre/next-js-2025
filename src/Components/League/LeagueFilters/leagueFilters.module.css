@@ -1,0 +1,40 @@
+.filter-container {
+    display: block;
+    border: 2px solid var(--white);
+    padding: var(--spacing-l);
+    justify-content: space-between;
+    font-size: var(--font-m);
+    flex-wrap: wrap;
+    margin-bottom:  var(--spacing-l);
+}
+
+.filter-container form label {
+    margin-bottom: var(--spacing-l);
+}
+
+.filter-container .filter-title {
+    display: block;   
+}
+
+.filter-container .filter-select {
+    display: block;
+    padding: var(--spacing-s);
+    font-size: var(--font-m);
+    width: 100%;
+}
+
+.filter-container .date-picker {
+    display: block;
+    margin: 0 var(--spacing-l) 0 0;
+}
+
+@media (min-width: 768px) {
+    .filter-container {
+        display: none;
+    }
+
+
+    .filter-container .filter-select {
+        width: 300px;
+    }
+}

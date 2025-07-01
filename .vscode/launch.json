@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Next.js: FULL STACK",
+          "type": "node",
+          "request": "launch",
+          "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
+          "args": ["dev"],
+          "runtimeArgs": ["--inspect-brk"],
+          "skipFiles": ["<node_internals>/**"],
+          "serverReadyAction": {
+              "action": "debugWithChrome",
+              "killOnServerStop": true,
+              "pattern": "Local:.+(https?://.+)",
+              "uriFormat": "%s",
+              "webRoot": "${workspaceFolder}"
+          },
+          "outputCapture": "std"
+      }
+  ]
+}

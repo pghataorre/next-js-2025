@@ -1,0 +1,13 @@
+.nav-button {
+    border: 2px solid var(--black);
+    padding: var(--spacing-xs);
+    background-color: var(--white);
+    font-size: var(--font-s);
+    color: var(--black);
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    padding: var(--spacing-xs);
+    background-color: var(--red);
+} 

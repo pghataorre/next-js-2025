@@ -1,0 +1,46 @@
+.filter-list {
+    padding: var(--spacing-l);
+    border: 2px solid var(--white); 
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    list-style-type: none;
+    flex-grow: 1;
+    margin-bottom: var(--spacing-m);
+    overflow-y: scroll;
+    height: 215px;
+  }
+    
+  .filter-list li {
+    margin: auto var(--spacing-m) auto 0;
+    font-size: var( --font-l);
+  }
+  
+  .filter-list li label input[type=checkbox] {
+    margin-right: var(--spacing-xs);
+    width: 30px;
+    height: 30px;
+  }
+  
+  .filter-list li label {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .filter-list li label:hover {
+    color: var(--red);
+  }
+  
+  @media (min-width: 768px) {
+    .filter-list {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 10px;
+      list-style-type: none;
+      margin-bottom: var(--spacing-m);
+    }
+      
+  }

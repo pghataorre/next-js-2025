@@ -1,0 +1,32 @@
+
+.review-list,
+.product-details {
+    font-size: var(--font-l);
+    margin: 20px 0;
+    list-style: none;
+}
+
+.review-list li,
+.product-details li {
+    margin-bottom: var(--spacing-m)
+}
+
+.product-images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.review-list .product-detail-sub-title,
+.product-details .product-detail-sub-title {
+    margin-bottom: var(--spacing-xl);
+    font-weight: var(--fontWeight-xl);
+}
+
+.nav-container {
+    margin: var(--spacing-s) 0;
+}
+
+.review-list {
+    list-style-type: square;
+    margin: var(--spacing-s) 0;  
+}

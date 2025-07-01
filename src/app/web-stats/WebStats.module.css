@@ -1,0 +1,9 @@
+.mix-item {
+  padding:var(--spacing-s);
+  font-size: var(--font-xxl);
+}
+
+.count-label {
+  font-weight: var(--fontWeight-xxl);
+  color: var(--red);
+}

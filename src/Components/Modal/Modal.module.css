@@ -1,0 +1,9 @@
+.modal-container {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid var(--white);
+    padding: var(--spacing-m);
+    background-color: var(--black);
+}

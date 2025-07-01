@@ -1,0 +1,14 @@
+.team-stats {
+    font-size: var(--font-xl);
+}
+
+.team-stats ul {
+    list-style: none;
+
+}
+.team-stats ul li {
+    background-color: rgba(192, 192, 192, 0.6);
+    margin: var(--spacing-s);
+    padding: var(--spacing-s);
+
+}

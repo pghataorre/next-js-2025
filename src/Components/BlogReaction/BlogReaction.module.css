@@ -1,0 +1,31 @@
+.blog-popularity {
+    display: flex;
+    list-style: none;
+}
+  
+.blog-popularity li {
+    margin : 0 var(--spacing-m) 0 0;
+}
+
+.blog-detail-sub-title {
+    display: block;
+    font-weight: 500;
+}
+
+.reaction-button {
+    background-color: var(--transparent);
+    border: none;
+    cursor: pointer;
+}
+
+.reaction-button:hover {
+    background-color: var(--transparent);
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.reaction-button:disabled:hover,
+.reaction-button:disabled {
+    opacity: 0.3;
+}

@@ -1,0 +1,18 @@
+.filter-container {
+    padding: var(--spacing-l);
+    margin-bottom: var(--spacing-l);
+     border: 1px solid var(--white);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.label-container {
+    display: block;
+    margin: 0 0 var(--spacing-l) 0;
+}
+
+select.select-list {
+    font-size: var(--font-m);
+    padding: var(--spacing-xs) var(--spacing-s) var(--spacing-xs);
+}

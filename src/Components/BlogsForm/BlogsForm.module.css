@@ -1,0 +1,72 @@
+.blog-form-container {
+    position: relative;
+}
+
+.blog-form-container h2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog-form-container h2 button {
+    width: 20%;
+    padding:  var(--spacing-s) var(--spacing-m);
+    font-size: var(--font-m);
+    cursor: pointer;
+}
+
+.blog-form-container form {
+    z-index: 2;
+    padding: var(--spacing-l);
+    width: 100%;
+    position: absolute;
+    top: 99px;
+    margin-top: var(--spacing-l);
+    background-color: var(--black);
+    border: 2px solid var(--white);
+}
+
+.blog-form-container .hide-blog-form {
+    display: none;
+    z-index: -1;
+}
+
+.blog-form-container .show-blog-form {
+    display: block;
+}
+
+.blog-form-container form span {
+    display: block;
+    margin-bottom: var(--spacing-s);
+}
+  
+.blog-form-container form input,
+.blog-form-container form textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--font-l);
+    padding: var(--spacing-s);
+    margin: 0 0 var(--spacing-m) 0;
+    width: 100%;
+    border: 1px solid var(--white);
+    color: var(--black);
+    background-color: var(--white);;
+}
+  
+.blog-form-container form button {
+    font-size: var(--font-m);
+    padding: var(--spacing-xs);;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: var(--red);
+    opacity: 0.7;
+    padding:  var(--spacing-m) var(--spacing-m);
+    font-size: var(--font-m);
+    margin: 0 0 var(--spacing-m);
+}
+
+.blog-form-container form button:hover  {
+    opacity: 1;
+}

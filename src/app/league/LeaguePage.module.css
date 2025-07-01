@@ -1,0 +1,29 @@
+.teams-data-container {
+    display: flex;
+    font-size: var(--font-m);
+    border: 2px solid var(--white);
+    padding: var(--spacing-l);
+}
+
+
+.full-team-data-listing {
+    display: none;
+}
+
+
+.team-results-data {
+    box-sizing: border-box;
+    font-size: var(--font-m);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+}
+
+@media (min-width: 768px) {
+    .team-results-data {
+        grid-template-columns:  1fr 1fr 1fr; 
+    }
+
+    .full-team-data-listing {
+        display: block;
+    }
+}

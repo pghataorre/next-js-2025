@@ -1,0 +1,31 @@
+.teams-list-container {
+    width: 100%;
+}
+
+.teams-list-container ul {
+    list-style: none;
+    padding: none;
+    margin-bottom: var(--spacing-l);
+}
+
+.teams-list-container ul li {
+    font-size: var(--font-xl);
+    margin-bottom: var(--spacing-s);
+}
+
+.teams-list-container ul li a {
+    color: var(--red);
+    text-decoration: none;
+}
+
+.teams-list-container ul li a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+
+@media (min-width: 768px) {
+    .teams-list-container {
+        width: 300px;
+    }
+}

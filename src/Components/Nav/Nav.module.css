@@ -1,0 +1,47 @@
+.nav-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .nav-container ul {
+    display: block;
+    list-style: none;
+    position: relative;
+  }
+  
+  .nav-container ul li {
+    padding: 15px;
+  }
+  
+  .nav-container ul li ul {
+    padding-top: 75px;
+    position: absolute;
+    top: 0px;
+    left: -1000%;
+    z-index: 1;
+    background-color: #000;
+    width: 40vh;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid var(--red);
+    transition: 0.9s;
+  }
+  
+  .nav-container ul li:hover ul {
+    left: 0px;
+    transition: 0.5s;
+  }
+  
+  .nav-link {
+    font-size: var(--font-l);
+    text-decoration: none;
+    color: var(--white);
+  }
+  
+  .nav-link:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+  
+  

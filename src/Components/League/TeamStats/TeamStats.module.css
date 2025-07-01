@@ -1,0 +1,4 @@
+.team-stat-container {
+    margin: 0 var(--spacing-l) var(--spacing-l) 0;
+    font-size: var(--font-xl);
+}
