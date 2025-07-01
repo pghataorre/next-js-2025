@@ -21,7 +21,7 @@ const ProductFilters = ({categoryList, handleSelectChange, handleOnchangePrice, 
                 name="categoryList" 
                 onChange={(event) => handleSelectChange(event)} ref={categoryRef} 
                 className={style['select-list']}>
-                <option defaultValue={true} value="-1">Category</option>
+                <option defaultValue="-1" value="-1">Category</option>
                 { categoryList?.map((catItem, index) => <option key={`${index}-${catItem}`} value={catItem}>{catItem}</option>)} 
             </select>
         </label>)
