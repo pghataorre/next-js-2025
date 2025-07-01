@@ -50,9 +50,9 @@ const BlogReaction = ({likes, dislikes, id}: IBlogReaction): JSX.Element => {
                 <li>
                     <span className={style['blog-detail-sub-title']}>
                         <button 
-                            disabled={disableButton} 
+                            disabled={disableButton || !id} 
                             className={style['reaction-button']} 
-                            onClick={() => handleReaction(id, "likes")}>
+                            onClick={() => id && handleReaction(id, "likes")}>
                                 <ThumbsUp />
                         </button>
                     </span>
@@ -62,9 +62,9 @@ const BlogReaction = ({likes, dislikes, id}: IBlogReaction): JSX.Element => {
                 </li>
                 <li>
                     <span className={style['blog-detail-sub-title']}>
-                        <button disabled={disableButton} 
+                        <button disabled={disableButton || !id} 
                             className={style['reaction-button']} 
-                            onClick={() => handleReaction(id, "dislikes")}>
+                            onClick={() => id && handleReaction(id, "dislikes")}>
                                 <ThumbsDown />
                         </button>
                     </span>
