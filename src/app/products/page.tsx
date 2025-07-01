@@ -53,7 +53,7 @@ export default function Products() {
 
     return () => setInitialLoad(true);
 
-  }, []);
+  }, [intialLoad]);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault();

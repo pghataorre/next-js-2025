@@ -18,38 +18,41 @@ type TSearchBody = {
 
 
 type TParams = {
-    searchParams: Record<string, string | string[] | undefined | TSearchBody>
+    searchParams: TSearchBody;
 }
 
-export async function getTeams(searchBody: TSearchBody) {
+const  getTeams = async (searchBody: TSearchBody)  =>  {
     try {
         const res = await fetch(`${config.apiUrl}/league`, {
-            "method": "POST",
-            "body": JSON.stringify({
-                "teamKey": searchBody?.teamKey,
-                "action": searchBody?.action
+            method: "POST",
+            body: JSON.stringify({
+                teamKey: searchBody?.teamKey,
+                action: searchBody?.action
             }),
-            "headers": {
+            headers: {
                 "Content-Type": "application/json"
             }
         });
         
         const result = await res.json();
+        return  result;
 
-        return await result;
     } catch (e) {
-        console.log('error -----', e);
+        console.error("Error fetching filtered teams:", e);
+        return undefined;
     }
 }
 
-export async function getAllTeams() {
+const getAllTeams = async () =>  {
     try {
         const res = await fetch(`${config.apiUrl}/league`);
         const result = await res.json();
 
-        return await result;
+        return result;
+
     } catch (e) {
-        console.log('error -----', e);
+        console.error("Error fetching filtered teams:", e);
+        return undefined;
     }
 }
 
@@ -61,14 +64,13 @@ export default async function League({searchParams}: TParams) {
 
     dataTeams = await getAllTeams();
 
-
     if(dataTeams &&'teams' in dataTeams) {
         teamName = await dataTeams?.teams?.find((team: TTeam) =>  team.key === params.teamKey);
     }
 
 
-    if('teamKey' in params) {
-        filteredTeams = await getTeams(params);
+    if(params && 'teamKey' in params) {
+        filteredTeams = await getTeams({teamKey: searchParams.teamKey || '', action: searchParams.action || ''});
     }
 
     return (
@@ -88,7 +90,7 @@ export default async function League({searchParams}: TParams) {
                             <div>
                                 <h2>TEAM STATS: {teamName && ('name' in teamName ) ? (teamName.name) : ('')}</h2>
                                 <div className={style['team-results-data']} >
-                                    <TeamStats filteredTeams={filteredTeams.matchStats} />
+                                    <TeamStats filteredTeams={filteredTeams} />
                                 </div> 
                             </div> 
                     )}

@@ -485,9 +485,6 @@ const blogs = [
   ]
 
 
-
-
-
 const sortShit = () => {
   const userIdsCollection = usersCollection.map((user) => {
     return user.id; 

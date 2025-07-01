@@ -3,11 +3,11 @@ import { IMixItemCollection, IError, IMixItem } from "./types";
 import style from './WebStats.module.css';
 import config from "@/config";
 
-export async function getstats() {
+const getstats = async () => {
   try {
       const res = await fetch(`${config.apiUrl}/mixCount`);
       const result = await res.json();
-      const sortedItemsByMixCount = result.mixes.sort((a,b) => b.mixCount - a.mixCount);
+      const sortedItemsByMixCount = result.mixes.sort((a: IMixItem, b: IMixItem) => b.mixCount - a.mixCount);
 
       const sortedResults =  {
         total: sortedItemsByMixCount.length ?? 0,

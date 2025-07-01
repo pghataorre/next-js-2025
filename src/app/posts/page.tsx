@@ -51,7 +51,7 @@ export default function Blogs () {
       if(!isCached) {
         (async () => await getAllBlogs())();
       }
-    }, [blogsFilteredData, isLoggedIn]);
+    }, [blogsFilteredData, isLoggedIn, isCached]);
 
     const handleDelete = async(blogId: string) => {
       try {
