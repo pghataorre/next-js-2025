@@ -1,7 +1,8 @@
 import sortByLikes from './utlis';
+import config from '@/config';
 
 const getBlogs = async () => {
-    const res = await fetch(`http://localhost:3000/api/posts`);
+    const res = await fetch(`${config.apiUrl}/posts`);
     const results = await res.json();
     
     if("posts" in results) {

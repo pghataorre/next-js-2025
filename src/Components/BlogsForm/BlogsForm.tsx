@@ -36,7 +36,6 @@ const BlogForm = ({getAllBlogs, tagsGroup, isLoggedIn}: TAddBlog): JSX.Element =
 
         } catch(e) {
             console.log(e);
-            console.log
             return undefined;
         } finally {
             getAllBlogs();

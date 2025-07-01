@@ -11,7 +11,7 @@ const BlogFilterList = ({tagsGroup, blogFilters, handleOnchange}: TBlogsFilterLi
         <ul className={style['filter-list']}>
             {
             tagsGroup?.map((tagItem: string) => {
-                let datestamp: string = Date.now().toString();
+                const datestamp: string = Date.now().toString();
                 const isChecked = blogFilters.length > 0 
                     ? blogFilters.includes(tagItem)
                     : false;

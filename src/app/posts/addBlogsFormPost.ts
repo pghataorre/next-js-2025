@@ -1,4 +1,4 @@
-
+import config from '@/config';
 
 type TFormDetails = {
     blogTitle: string | undefined;
@@ -11,7 +11,7 @@ type TFormDetails = {
 const addBlogsFormPost = async (formDetails: TFormDetails) => {
     const {blogTitle, blogBody, blogTags, authToken, id} = formDetails;
 
-    const res = await fetch(`http://localhost:3000/api/posts`, {
+    const res = await fetch(`${config.apiUrl}/posts`, {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",

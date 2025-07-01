@@ -9,8 +9,7 @@ import ProductCard from "@/Components/ProductCard/ProductCard";
 import { useEffect, useRef, useState } from "react";
 import filteredProducts from "./filterProducts";
 import ProductFilters from "@/Components/ProductFilters/ProductFilters";
-
-
+import config from "@/config";
 
 export default function Products() {
   const [products, setProducts] = useState<IProductItem[] | undefined>(undefined);
@@ -23,7 +22,7 @@ export default function Products() {
 
   const getProducts = async () => {
     try{
-        const res = await fetch(`http://localhost:3000/api/products`);
+        const res = await fetch(`${config.apiUrl}/products`);
         const result:IProduct = await res.json();
         return result.products;
     } catch (error) {
