@@ -489,8 +489,6 @@ const blogs = [
 
 
 const sortShit = () => {
-
-
   const userIdsCollection = usersCollection.map((user) => {
     return user.id; 
   });
@@ -498,15 +496,11 @@ const sortShit = () => {
   const userCount = userIdsCollection?.length;
 
     const blogswithNewId = blogs.map((item) => {
-        let randonId = Math.floor(Math.random() * userCount);
-        item.userId = randonId;
+        const randomId = Math.floor(Math.random() * userCount);
+        item.userId = randomId;
 
         return item;
     });
-
-
-
-    console.log('blogs --=------ ', blogswithNewId);
     return blogswithNewId;
 }
 
