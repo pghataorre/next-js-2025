@@ -17,7 +17,7 @@ const LoginHeader = ({handleShowLogin, showLogin, isLoggedIn, userDetails}: TLog
             ? (<>
                     <div className={style['icon-container']}>
                         <div><ProfileIcon /></div>
-                        <div>{userDetails?.user?.name || 'Welcome'}</div>
+                        <div>{userDetails?.name || 'Welcome'}</div>
                     </div>
                 </>)
             : (<button onClick={handleShowLogin}>{showLogin ? 'Close Login Form': 'Login' }</button>)
