@@ -25,8 +25,7 @@ const getTeams = async (searchBody: TSearchBody)  =>  {
         const res = await fetch(`${config.apiUrl}/league`, {
             method: "POST",
             body: JSON.stringify({
-                teamKey: searchBody?.teamKey,
-                action: searchBody?.action
+                teamKey: searchBody?.teamKey
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -34,7 +33,7 @@ const getTeams = async (searchBody: TSearchBody)  =>  {
         });
         
         const result = await res.json();
-        return  result;
+        return  {...result};
 
     } catch (e) {
         console.error("Error fetching filtered teams:", e);
@@ -47,7 +46,7 @@ const getAllTeams = async () =>  {
         const res = await fetch(`${config.apiUrl}/league`);
         const result = await res.json();
 
-        return result;
+        return {...result};
 
     } catch (e) {
         console.error("Error fetching filtered teams:", e);
@@ -59,10 +58,10 @@ export default async function League({searchParams}: TParams) {
     const params = {teamKey: searchParams.teamKey || undefined, action: searchParams.action || undefined};
     const dataTeams: TTeamResponse | undefined = await getAllTeams();
 
-    const teamName: TTeam | undefined = dataTeams && 'teams' in dataTeams
-        ? dataTeams.teams.find((team: TTeam) => team.key === params.teamKey)
+    const teamName: TTeam | undefined = dataTeams !== undefined
+        ?  dataTeams.teams.find((team: TTeam) => team.key === params.teamKey)
         : undefined;
-
+        
     const filteredTeams: TFilteredData | undefined = params.teamKey
         ? await getTeams({teamKey: params.teamKey, action: params.action})
         : undefined;
