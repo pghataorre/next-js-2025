@@ -13,12 +13,13 @@ const TeamStats = ({ filteredTeams }: { filteredTeams: TFilteredData }) => {
     return (
         <>
             {teamFiltersOptions.map((filter) => {
-                const totalGoals: number = filteredTeams!.totals![filter.keyName as keyof typeof filteredTeams.totals];
+                const keyVal = filter.keyName as 'wins' | 'draws' | 'losses';
+                const totalGoals: number = filteredTeams.matchStats.totals[keyVal];
                 return(
                     <div className={style['team-stat-container']} key={filter.keyName}>
                         <h4>{filter.name} ({totalGoals})</h4>
-                           {Array.isArray(filteredTeams[filter.keyName as keyof TFilteredData]) ? (
-                            <LeagueTeamBreakDown teamsData={filteredTeams[filter.keyName as keyof TFilteredData] as TMatches[]} />
+                           {Array.isArray(filteredTeams.matchStats[keyVal]) ? (
+                            <LeagueTeamBreakDown teamsData={filteredTeams.matchStats[keyVal] as TMatches[]} />
                         ) : null}
                     </div>
                 )

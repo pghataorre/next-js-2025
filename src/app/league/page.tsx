@@ -46,7 +46,7 @@ const getAllTeams = async () =>  {
      try {
         const res = await fetch(`${config.apiUrl}/league`);
         const result = await res.json();
-        
+
         return result;
 
     } catch (e) {
@@ -84,7 +84,7 @@ export default async function League({searchParams}: TParams) {
                             <div>
                                 <h2>TEAM STATS: {teamName && ('name' in teamName ) ? (teamName.name) : ('')}</h2>
                                 <div className={style['team-results-data']} >
-                                    <TeamStats filteredTeams={filteredTeams.matchStats} />
+                                    <TeamStats filteredTeams={filteredTeams} />
                                 </div> 
                             </div> 
                     )}
