@@ -1,10 +1,12 @@
+import config from "@/config";
+
 type TUser = {
     username: string;
     password: string;
 }
 
 const getUser = async (userDetails: TUser, getAll?:boolean) => {
-    const res = await fetch(`${process.env.BASE_JSON_SERVER_URL}/users`);
+    const res = await fetch(`${config.baseServerApi}/users`);
 
     if(!res.ok) {
         throw new Error('AN ERROR OCCURRED IN GETTING USER LOGIN');

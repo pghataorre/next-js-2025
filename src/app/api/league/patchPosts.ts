@@ -1,6 +1,7 @@
 import { TBlog, TReaction } from "@/app/posts/types";
 import config from "@/config";
 
+
 const patchReaction = async (blog: TBlog, reaction: TReaction): Promise<TBlog | undefined> => {
     if(reaction === 'likes') {
         blog.reactions.likes = blog.reactions.likes += 1;

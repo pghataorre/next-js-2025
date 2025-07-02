@@ -6,6 +6,7 @@ import { IProductItem, IReview } from "../types";
 import style from './Product.module.css';
 import NavButton from "../../../Components/NavButton/NavButton";
 import Image from "next/image";
+import config from "@/config";
 
 interface IProductParams {
   params: {
@@ -15,7 +16,7 @@ interface IProductParams {
 
 const getProducts = async (id: string) => {
   try {
-      const res = await fetch(`${process.env.BASE_API_URL}/api/products/${id}`);
+      const res = await fetch(`${config.apiUrl}/products/${id}`);
       const productDetail :IProductItem = await res.json();
 
       return productDetail;

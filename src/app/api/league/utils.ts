@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { TAction, TDates, TLeague, TMatches } from "./types";
+import config from "@/config";
 
 export const filterData = (filter: TAction, teamFixtures: TMatches[], keyName: string, dateSpan?: TDates) => {
     return teamFixtures.filter((team) => {
@@ -23,7 +24,7 @@ export const filterData = (filter: TAction, teamFixtures: TMatches[], keyName: s
 
 
 export const getTeamData = async () => {
-    const res = await fetch(`${process.env.BASE_JSON_SERVER_URL}/league`);
+    const res = await fetch(`${config.baseServerApi}/league`);
     const result: TLeague = await res.json();
     return NextResponse.json({...result}, {status: 200});
 }

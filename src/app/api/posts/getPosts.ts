@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
+import config from '@/config';
 
 const getPosts = async (blogId?: string | undefined) => {
 
     try {
-        const res = await fetch(`${process.env.BASE_JSON_SERVER_URL}/posts`);
+        const res = await fetch(`${config.baseServerApi}/posts`);
         const results = await res.json();
         
         if(!blogId) {

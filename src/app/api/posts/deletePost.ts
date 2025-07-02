@@ -1,5 +1,7 @@
+import config from "@/config";
+
 const deletePost = async (blogId: string) => {
-    const res = await fetch(`${process.env.BASE_JSON_SERVER_URL}/posts/${blogId}`, {
+    const res = await fetch(`${config.baseServerApi}/posts/${blogId}`, {
         "method": "DELETE",
     });
 

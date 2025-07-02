@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import { TBlog } from '../../posts/types'; 
+import config from '@/config';
 
 const addPost = async (postBody: TBlog) => {
     try {
-        const res = await fetch(`${process.env.BASE_JSON_SERVER_URL}/posts`,{
+        const res = await fetch(`${config.baseServerApi}/posts`,{
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json",

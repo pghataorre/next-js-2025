@@ -1,4 +1,3 @@
- "use server";
 import LeagueDateFilter from "@/Components/League/LeagueFilters/LeagueFilters";
 import PageLayout from "@/Components/PageLayout/PageLayout";
 import { TTeamResponse, TFilteredData, TTeam } from '@/app/api/league/types';
@@ -21,7 +20,7 @@ type TParams = {
     searchParams: TSearchBody;
 }
 
-const  getTeams = async (searchBody: TSearchBody)  =>  {
+const getTeams = async (searchBody: TSearchBody)  =>  {
     try {
         const res = await fetch(`${config.apiUrl}/league`, {
             method: "POST",
@@ -44,10 +43,10 @@ const  getTeams = async (searchBody: TSearchBody)  =>  {
 }
 
 const getAllTeams = async () =>  {
-    try {
+     try {
         const res = await fetch(`${config.apiUrl}/league`);
         const result = await res.json();
-
+        
         return result;
 
     } catch (e) {
@@ -57,21 +56,16 @@ const getAllTeams = async () =>  {
 }
 
 export default async function League({searchParams}: TParams) {
-    let dataTeams: TTeamResponse | undefined = undefined;
-    let filteredTeams: TFilteredData | undefined = undefined
-    let teamName: TTeam | undefined = undefined;
-    const params = {teamKey: searchParams.teamKey || undefined, action: searchParams.action || undefined }
+    const params = {teamKey: searchParams.teamKey || undefined, action: searchParams.action || undefined};
+    const dataTeams: TTeamResponse | undefined = await getAllTeams();
 
-    dataTeams = await getAllTeams();
+    const teamName: TTeam | undefined = dataTeams && 'teams' in dataTeams
+        ? dataTeams.teams.find((team: TTeam) => team.key === params.teamKey)
+        : undefined;
 
-    if(dataTeams &&'teams' in dataTeams) {
-        teamName = await dataTeams?.teams?.find((team: TTeam) =>  team.key === params.teamKey);
-    }
-
-
-    if(params && 'teamKey' in params) {
-        filteredTeams = await getTeams({teamKey: searchParams.teamKey || '', action: searchParams.action || ''});
-    }
+    const filteredTeams: TFilteredData | undefined = params.teamKey
+        ? await getTeams({teamKey: params.teamKey, action: params.action})
+        : undefined;
 
     return (
         <PageLayout>
@@ -86,11 +80,11 @@ export default async function League({searchParams}: TParams) {
                             <h2>TEAMS</h2>
                             <LeagueTeamsList teamsData={dataTeams?.teams} />
                         </div>
-                        {filteredTeams && (
+                        {(filteredTeams && 'matchStats' in filteredTeams) && (
                             <div>
                                 <h2>TEAM STATS: {teamName && ('name' in teamName ) ? (teamName.name) : ('')}</h2>
                                 <div className={style['team-results-data']} >
-                                    <TeamStats filteredTeams={filteredTeams} />
+                                    <TeamStats filteredTeams={filteredTeams.matchStats} />
                                 </div> 
                             </div> 
                     )}

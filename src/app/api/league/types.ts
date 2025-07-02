@@ -35,12 +35,12 @@ export type TDates = {
 
 
 export type TFilteredData = {
-    wins:  TMatches[]
-    losses: TMatches[],
     draws: TMatches[],
+    losses: TMatches[],
     totals: {
         wins: number;
         draws: number;
         losses: number;
     }
-}
+    wins:  TMatches[];
+} | undefined;
