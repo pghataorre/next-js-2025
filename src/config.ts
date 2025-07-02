@@ -1,8 +1,8 @@
 const config = {
-    apiUrl: process.env.ENVIRONMENT === 'prod' ? `${process.env.BASE_JSON_SERVER_URL}/api` : 'http://localhost:3000/api',
-    baseServerApi: process.env.BASE_JSON_SERVER_URL || 'http://localhost:3001',
-    permyApi: process.env.PERMY_API || 'https://api.permy.co.uk/mixCount',
-    productApi: process.env.PRODUCT_URL || 'https://dummyjson.com/products',
+    apiUrl: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod' ? 'http://next-js-2025-tawny.vercel.app/api' : 'http://localhost:3000/api',
+    baseServerApi: process.env.NEXT_PUBLIC_BASE_JSON_SERVER_URL || 'http://localhost:3001',
+    permyApi: process.env.NEXT_PUBLIC_PERMY_API || 'https://api.permy.co.uk/mixCount',
+    productApi: process.env.NEXT_PUBLIC_PRODUCT_URL || 'https://dummyjson.com/products',
     filterOptions: [
         {name: "Team Wins", keyName: "wins"},
         {name: "Team Draws", keyName: "draws"},
