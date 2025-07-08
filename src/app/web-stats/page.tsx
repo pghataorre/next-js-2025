@@ -6,9 +6,10 @@ import config from "@/config";
 const getstats = async () => {
   try {
       const res = await fetch(`${config.apiUrl}/mixCount`, {
-        next: { revalidate: 60 },
+        next: { revalidate: 10 },
       });
       const result = await res.json();
+
       const sortedItemsByMixCount = result.mixes.sort((a: IMixItem, b: IMixItem) => b.mixCount - a.mixCount);
 
       const sortedResults =  {
@@ -28,7 +29,7 @@ const getstats = async () => {
 
 export default async function WebStats() {
     let lastRevalidated: string;
-    const mixData = await getstats() as IMixItemCollection | IError;
+    const mixData: IMixItemCollection | IError = await getstats();
 
     if('whenRevalidated' in mixData && mixData.whenRevalidated) {
       const revalDate = new Date(mixData.whenRevalidated);
