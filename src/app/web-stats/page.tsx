@@ -5,7 +5,9 @@ import config from "@/config";
 
 const getstats = async () => {
   try {
-      const res = await fetch(`${config.apiUrl}/mixCount`);
+      const res = await fetch(`${config.apiUrl}/mixCount`, {
+        next: { revalidate: 60 },
+      });
       const result = await res.json();
       const sortedItemsByMixCount = result.mixes.sort((a: IMixItem, b: IMixItem) => b.mixCount - a.mixCount);
 
@@ -14,7 +16,7 @@ const getstats = async () => {
         items: sortedItemsByMixCount
       };
 
-      return sortedResults;
+      return {...sortedResults, whenRevalidated: new Date().toISOString()};
 
 
   } catch(error) {
@@ -25,7 +27,30 @@ const getstats = async () => {
 
 
 export default async function WebStats() {
+    let lastRevalidated: string;
     const mixData = await getstats() as IMixItemCollection | IError;
+
+    if('whenRevalidated' in mixData && mixData.whenRevalidated) {
+      const revalDate = new Date(mixData.whenRevalidated);
+      const datePart = revalDate.toLocaleDateString("en-GB", {
+        weekday: 'short',
+        year: 'numeric',
+        day: '2-digit',
+        timeZoneName: 'short'
+      });
+
+      const timePart = revalDate.toLocaleTimeString("en-GB", {
+        hour: '2-digit',
+        minute:  '2-digit',
+        second:  '2-digit',
+      });
+
+
+      lastRevalidated = `${datePart} - ${timePart}`;
+    } else {
+      lastRevalidated = '';
+    }
+
     let ListItems = null; 
 
     if ('items' in mixData && Array.isArray(mixData.items)) {
@@ -46,6 +71,7 @@ export default async function WebStats() {
   return (
     <PageLayout>
       <h2>WEB STATS FOR THE MIX PLAYS FROM PERMY.CO.UK</h2>
+      <p>Latest update was on {lastRevalidated}</p>
       <p>This will show you the number of times each mix has been listened to</p>
       <h2>Number of Mixes = {'total' in mixData ? mixData.total : ''}</h2>
       <ul>

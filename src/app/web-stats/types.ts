@@ -1,6 +1,7 @@
 export interface IMixItemCollection {
     items: IMixItem[];
     total: number;
+    whenRevalidated : string;
   }
 
 export interface IMixItem {
