@@ -6,7 +6,7 @@ import config from "@/config";
 const getstats = async () => {
   try {
       const res = await fetch(`${config.apiUrl}/mixCount`, {
-        next: { revalidate: 10 },
+        cache: 'no-store'
       });
       const result = await res.json();
 
