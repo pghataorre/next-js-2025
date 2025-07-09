@@ -6,11 +6,11 @@ import BlogsFilter from '@/Components/BlogsFilter/BlogsFilter';
 import Modal from '@/Components/Modal/Modal';
 import BlogsForm from '@/Components/BlogsForm/BlogsForm';
 import LoadingSpinner from '@/Components/Icons/LoadingSpinner/LoadingSpinner';
-import getBlogs from './getBlogs';
+import getBlogs from './utils/getBlogs';
 import { useEffect, useState } from 'react';
 import BlogList from '@/Components/BlogList/BlogList';
 import BlogLogin from '@/Components/BlogLogin/BlogLogin';
-import deleteBlog from './deleteBog';
+import deleteBlog from './utils/deleteBog';
 import Cookies from "js-cookie";
 
 export default function Blogs () {
@@ -49,15 +49,13 @@ export default function Blogs () {
       }
 
       if(!isCached) {
-        (async () => await getAllBlogs())();
+        getAllBlogs();
       }
     }, [blogsFilteredData, isLoggedIn, isCached]);
 
     const handleDelete = async(blogId: string) => {
       try {
-        
-        
-        const AuthToken = Cookies.get('access-token') || '';;
+        const AuthToken = Cookies.get('access-token') || '';
         const userId = Cookies.get('id') || '';
 
         const result = await deleteBlog(blogId, userId, AuthToken) ;

@@ -1,5 +1,5 @@
 import { SyntheticEvent, useRef, useState } from "react";
-import addBlogsFormPost from '@/app/posts/addBlogsFormPost';
+import addBlogsFormPost from '@/app/posts/utils/addBlogsFormPost';
 import style from './BlogsForm.module.css';
 import BlogFilterList from "../BlogFilterList/BlogFilterList";
 import Cookies from "js-cookie";
