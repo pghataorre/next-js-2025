@@ -7,6 +7,7 @@ const config = {
     baseServerApi: process.env.NEXT_PUBLIC_BASE_JSON_SERVER_URL || 'http://localhost:3001',
     permyApi: process.env.NEXT_PUBLIC_PERMY_API || 'https://api.permy.co.uk/mixCount',
     productApi: process.env.NEXT_PUBLIC_PRODUCT_URL || 'https://dummyjson.com/products',
+    jwt_secret: process.env.NEXT_PUBLIC_JWT_SECRET,
     filterOptions: [
         {name: "Team Wins", keyName: "wins"},
         {name: "Team Draws", keyName: "draws"},

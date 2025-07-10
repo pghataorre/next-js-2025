@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import getUser from "./getUser";
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
+import config from '@/config';
 
 export async function POST(req: Request) { 
     const userDetails = await req.json();
@@ -16,7 +17,7 @@ export async function POST(req: Request) {
 
             const token = jwt.sign(
                 userSafe,
-                process.env.JWT_SECRET as string,
+                config.jwt_secret as string,
                 { expiresIn: '1h' }
             );
 
