@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import poolConnection from '../../connection';
 
 export async function GET(req: Request, context: { params?: { teamId?: string } }) {
-    const teamId: string | undefined = context?.params?.teamId || undefined;
+  const teamId: string | undefined = context?.params?.teamId || undefined;
   const client = await poolConnection.connect();
   try {
     const res = await client.query(`SELECT * FROM get_managers('${teamId}')`);

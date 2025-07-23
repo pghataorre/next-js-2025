@@ -5,11 +5,11 @@ const config = {
 
     })(),
     dbConnection: {
-        host: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod' ? 'SOME_PROD_URL' : 'localhost',
+        host: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod' ? process.env.NEXT_PUBLIC_LIVE_DB_URL : 'localhost',
         port: 5432,
-        database: process.env.NEXT_PUBLIC_DB_NAME,
-        user: process.env.NEXT_PUBLIC_DB_USER,
-        password: process.env.NEXT_PUBLIC_DB_PASSWORD,
+        database: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod' ? process.env.NEXT_PUBLIC_DB_NAME_LIVE : process.env.NEXT_PUBLIC_DB_NAME,
+        user: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod' ? process.env.NEXT_PUBLIC_DB_USER_LIVE : process.env.NEXT_PUBLIC_DB_USER,
+        password: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod' ? process.env.NEXT_PUBLIC_DB_PASSWORD_LIVE : process.env.NEXT_PUBLIC_DB_PASSWORD,
         ssl: process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod'  ? true : false
     },
     baseServerApi: process.env.NEXT_PUBLIC_BASE_JSON_SERVER_URL || 'http://localhost:3001',
