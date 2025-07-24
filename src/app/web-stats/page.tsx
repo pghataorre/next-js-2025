@@ -5,9 +5,7 @@ import config from "@/config";
 
 const getstats = async () => {
   try {
-      const res = await fetch(`${config.apiUrl}/mixCount`, {
-        cache: 'no-store'
-      });
+      const res = await fetch(`${config.apiUrl}/mixCount`);
       const result = await res.json();
 
       const sortedItemsByMixCount = result.mixes.sort((a: IMixItem, b: IMixItem) => b.mixCount - a.mixCount);
