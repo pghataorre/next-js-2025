@@ -15,6 +15,9 @@ const Nav = () => {
                 <Link href="/" className={styles['nav-link']}>HOME</Link>
             </li>
             <li>
+                <Link href="/football" className={styles['nav-link']}>FOOTBALL VIA POSTGRES</Link>
+            </li>
+            <li>
                 <Link href="/league" className={styles['nav-link']}>LEAGUE STATS</Link>
             </li>
             <li>

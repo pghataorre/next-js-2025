@@ -72,7 +72,7 @@ export default async function League({searchParams}: TParams) {
                 <h2>L o a d i n g</h2>
             ) : (
                 <>
-                    <h2>FOOTBALL LEAGUE</h2>
+                    <h2>FOOTBALL STATS FROM A JSON RESPONSE</h2>
                     <LeagueDateFilter teamsData={dataTeams?.teams} />
                     <div className={style['teams-data-container']}>
                         <div className={style['full-team-data-listing']}>
