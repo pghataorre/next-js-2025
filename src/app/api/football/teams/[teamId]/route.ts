@@ -5,7 +5,7 @@ export async function GET(req: Request, context: { params?: { teamId?: string } 
   const teamId: string | undefined = context?.params?.teamId || undefined;
   const client = await poolConnection.connect();
   try {
-    const teams = await client.query(`SELECT * FROM get_managers(NULL)`);
+    const teams = await client.query(`SELECT * FROM get_teams(NULL)`);
     const managers = await client.query(`SELECT * FROM get_managers('${teamId}')`);
     const players = await client.query(`SELECT * FROM get_team_players('${teamId}')`);
 
