@@ -1,14 +1,19 @@
 .teams-container {
-    display: flex;
-    font-size: var(--font-m);
-    border: 2px solid var(--white);
-    padding: var(--spacing-l);
+  font-size: var(--font-m);
+  border: 2px solid var(--white);
+  padding: var(--spacing-l);
+}
 
+.team-details {
+  display: block;
 }
 
 .teams-container ul {
+  box-sizing: border-box;
   list-style-type: none;
-  width: 100%;
+  margin: var(--spacing-l);
+  border: 2px solid var(--white);
+  padding: var(--spacing-l);
 }
 
 .teams-container ul li {
@@ -38,12 +43,17 @@
 }
 
 @media (min-width: 768px) {
-  .teams-container ul {
-    width: 300px;
-    border: 1px solid green;
+  .team-details {
+    display: flex;
+    justify-content:stretch;
+    min-width: 33.333%;
   }
 
-    .full-team-data-listing {
-        display: block;
-    }
+  .teams-container ul {
+    margin: 0 var(--spacing-l) 0;
+  }
+
+  .full-team-data-listing {
+      display: block;
+  }
 }
