@@ -45,7 +45,7 @@ export default async function Football({searchParams}: TParams) {
             <div className={style['teams-container']}>
              
               <div className={style['team-details']}>
-              {teamsResult?.players && (
+              {teamsResult?.teams && (
                 <ul>
                   <li><h3>TEAMS</h3></li>
                   {
@@ -55,7 +55,7 @@ export default async function Football({searchParams}: TParams) {
                   }
                 </ul>
               )}
-              
+
               {teamsResult?.players && 
               
                 (<ul>
@@ -78,7 +78,7 @@ export default async function Football({searchParams}: TParams) {
                       })
                   }
                 </ul>
-              )};
+              )}
               
               </div>
             </div>
