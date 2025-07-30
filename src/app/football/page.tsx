@@ -45,18 +45,18 @@ export default async function Football({searchParams}: TParams) {
             <div className={style['teams-container']}>
              
               <div className={style['team-details']}>
-              {teamsResult?.teams && (
+              {teamsResult?.teams.length > 0 && (
                 <ul>
                   <li><h3>TEAMS</h3></li>
                   {
-                      teamsResult?.teams?.map((team: TTeam) => {
-                        return (<li key={team.teamid}><Link href={`/football?teamId=${team.teamid}`}>{team.name}</Link></li>) 
-                      })
+                    teamsResult?.teams?.map((team: TTeam) => {
+                      return (<li key={team.teamid}><Link href={`/football?teamId=${team.teamid}`}>{team.name}</Link></li>) 
+                    })
                   }
                 </ul>
               )}
 
-              {teamsResult?.players && 
+              {teamsResult?.players !== undefined && teamsResult?.players.length > 0 && 
               
                 (<ul>
                   <li><h3>PLAYERS</h3></li>
@@ -69,17 +69,16 @@ export default async function Football({searchParams}: TParams) {
               )}
 
 
-              {teamsResult?.managers && (
+              {teamsResult?.managers !== undefined && teamsResult?.managers.length > 0 && (
                 <ul>
                   <li><h3>MANAGERS</h3></li>
                   {
-                      teamsResult?.managers?.map((manager: TManagers) => {
-                        return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?playerId=${123}`}>{`${manager.m_name}`}</Link></li>) 
-                      })
+                    teamsResult?.managers?.map((manager: TManagers) => {
+                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?playerId=${123}`}>{`${manager.m_name}`}</Link></li>) 
+                    })
                   }
                 </ul>
               )}
-              
               </div>
             </div>
           </>
