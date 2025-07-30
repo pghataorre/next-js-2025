@@ -73,27 +73,28 @@ p {
   flex-direction: column;
   justify-content:first baseline;
   align-items: center;
-  margin: var(--spacing-l) auto 0;
   padding: 0;
   height: 100vh;
   width: 100%;
 }
 
-@media (min-width: var(--mobile)) {
+.page {
+  padding: 0 var(--spacing-l);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
   .main {
-    width: 80%;
+    width: 90%;
   }
 
   .page {
-    width: 80%;
+    padding: var(--spacing-xl);
+    width: 100%;
   }
 }
 
-.page {
-  padding: var(--spacing-xxl);
-  margin: var(--spacing-m) auto 0; 
-  width: 100%;
-}
+
 
 .nav-link {
   color: inherit;
@@ -104,10 +105,4 @@ p {
 .nav-link :hover {
   color: var(--red);
   text-decoration: underline;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
