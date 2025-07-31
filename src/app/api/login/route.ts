@@ -42,7 +42,10 @@ export async function POST(req: Request) {
                 cookieProperties as object
             )   
 
-            return NextResponse.json({foundUser: true, user: {name: user.name, id: user.id}}, {status: 200});
+
+            const response = NextResponse.json({foundUser: true, user: {name: user.name, id: user.id}}, {status: 200});
+            response.headers.set('Access-Control-Allow-Origin', '•');
+            return response;
 
         } else {
             return NextResponse.json({foundUser: false, user: {}}, {status: 400});
