@@ -38,8 +38,17 @@ export async function POST(req: Request) {
                 sameSite: 'strict',
             };
 
-            cookies().set('access-token', token, cookieProperties as object);
-            cookies().set('id', user.id, cookieProperties as object);
+            cookies().set(
+                'access-token', 
+                token,
+                cookieProperties as object
+            );
+            
+            cookies().set(
+                'id',
+                user.id,
+                cookieProperties as object
+            );
 
             const response = NextResponse.json(
                 { foundUser: true, user: { name: user.name, id: user.id } },
@@ -47,7 +56,7 @@ export async function POST(req: Request) {
             );
             response.headers.set('Access-Control-Allow-Origin', '*');
             response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
-            response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+                response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
             return response;
         } else {
             const response = NextResponse.json({ foundUser: false, user: {} }, { status: 400 });

@@ -3,7 +3,7 @@ import config from "@/config";
 import style from './football.module.css';
 import Link from "next/link";
 import { TManagers, TPlayers, TTeam, TTeamsList } from './types';
-
+import LoginForm from "@/Components/Footballl/LoginForm/LoginForm";
 
 type TSearchBody = {
   teamId: string | undefined;
@@ -30,7 +30,6 @@ const getTeams = async (teamId?: string | undefined): Promise<TTeamsList | undef
     }
 }
 
-
 export default async function Football({searchParams}: TParams) {
   const params: TSearchBody | undefined = {teamId: searchParams.teamId || undefined};
   const teamsResult = await getTeams(params.teamId);
@@ -41,9 +40,9 @@ export default async function Football({searchParams}: TParams) {
             <h2>L o a d i n g</h2>
         ) : (
           <>  
-            <h2>FOOTBALL LEAGUE</h2>
+            <h2><span>FOOTBALL LEAGUE</span></h2>
             <div className={style['teams-container']}>
-             
+              <LoginForm />
               <div className={style['team-details']}>
               {teamsResult?.teams.length > 0 && (
                 <ul>

@@ -1,0 +1,50 @@
+.forms-container {
+  padding: 0 0 var(--spacing-m) 0;
+}
+
+.form input {
+  font-size: var(--font-m);
+  padding: var(--spacing-s) var(--spacing-s);
+  margin-bottom: var(--spacing-s);
+  width: 100%;
+}
+
+.form label {
+  display: block;
+}
+
+.form {
+  display: block;
+  width: 100%;
+}
+
+.form span {
+  display: block;
+  padding: var(--spacing-xs);
+}
+
+.cta-button {
+  font-size: var(--font-m);
+  padding: var(--spacing-s) var(--spacing-s);
+  border: 2px solid #fff;
+  cursor: pointer;
+  height: 50px;
+}
+
+.cta-button:hover {
+  background-color: var(--red);
+}
+
+@media (min-width: 768px) {
+  .form {
+    display: flex;
+  }
+
+  .form label {
+    margin: 0 var(--spacing-m) 0 0;
+  }
+
+  .form .cta-button {
+    margin: var(--spacing-s) 0 0 var(--spacing-m);
+  }
+}
