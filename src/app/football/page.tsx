@@ -49,11 +49,11 @@ export default async function Football({searchParams}: TParams) {
             <h2>L o a d i n g</h2>
         ) : (
           <>  
-            <h2>FOOTBALL LEAGUE</h2>
+            <h2>FOOTBALL LEAGUE - {teamName}</h2>
             <div className={style['teams-container']}>
               <LoginForm />
               <div className={style['team-details']}>
-              <h2>{teamName}</h2>
+
               {teamsResult?.teams.length > 0 && (
                 <ul>
                   <li><h3>TEAMS</h3></li>
