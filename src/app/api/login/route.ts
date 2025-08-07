@@ -4,16 +4,6 @@ import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 import config from '@/config';
 
-// Handle preflight CORS requests
-export async function OPTIONS() {
-  return NextResponse.json({}, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    }
-  });
-}
 
 export async function POST(req: Request) { 
     const userDetails = await req.json();
