@@ -16,6 +16,8 @@ export async function GET(req: Request, context: { params?: { teamId?: string } 
       players: players.rows,
       tournaments: tournaments.rows
     };
+    
+    console.warn('info --- ', info);
 
     return NextResponse.json({...info}, {status: 200});
 
