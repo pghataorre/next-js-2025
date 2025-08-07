@@ -34,12 +34,14 @@ export default async function Football({searchParams}: TParams) {
   const params: TSearchBody | undefined = {teamId: searchParams.teamId || undefined};
   const teamsResult = await getTeams(params.teamId);
 
+  console.warn('teamsResult ---------', teamsResult);
+
   const getTeamName = (teams: TTeam[], teamId: string | undefined) => {
     if (!teams || !teamId) return '';
 
     const team = teams.filter((item) => item.teamid === teamId)[0];
     return team.name;
-  }
+  };
 
   const teamName = teamsResult?.teams ? getTeamName(teamsResult.teams, params.teamId) : '';
 
@@ -83,7 +85,7 @@ export default async function Football({searchParams}: TParams) {
                   <li><h3>MANAGER(S)</h3></li>
                   {
                     teamsResult?.managers?.map((manager: TManagers) => {
-                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?managerId=${123}`}>{`${manager.m_name}`}</Link></li>) 
+                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?managerId=${123}`}>{`${manager.m_name} ${manager.iscurrent ? '(CURRENT)' : ''}`}</Link></li>) 
                     })
                   }
                 </ul>
@@ -94,7 +96,7 @@ export default async function Football({searchParams}: TParams) {
                   <li><h3>TOURNAMENT(S)</h3></li>
                   {
                     teamsResult?.managers?.map((manager: TManagers) => {
-                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?playerId=${123}`}>{`${manager.m_name}`}</Link></li>) 
+                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/tournament?tourId=${123}`}>{`${manager.m_name}`}</Link></li>) 
                     })
                   }
                 </ul>
