@@ -54,7 +54,7 @@ export default async function Football({searchParams}: TParams) {
               <LoginForm />
               <div className={style['team-details']}>
 
-              {teamsResult?.teams && (
+              {teamsResult?.teams && teamsResult?.teams.length > 0 && (
                 <ul>
                   <li><h3>TEAMS</h3></li>
                   {
@@ -65,8 +65,7 @@ export default async function Football({searchParams}: TParams) {
                 </ul>
               )}
 
-              {teamsResult?.players && 
-              
+              {teamsResult?.players && teamsResult?.players.length > 0 &&
                 (<ul>
                   <li><h3>PLAYERS</h3></li>
                   {
@@ -78,7 +77,7 @@ export default async function Football({searchParams}: TParams) {
               )}
 
 
-              {teamsResult?.managers && (
+              {teamsResult?.managers && teamsResult?.managers.length > 0 && (
                 <ul>
                   <li><h3>MANAGER(S)</h3></li>
                   {
@@ -89,7 +88,7 @@ export default async function Football({searchParams}: TParams) {
                 </ul>
               )}
 
-              {teamsResult?.tournaments && (
+              {teamsResult?.tournaments && teamsResult?.tournaments.length > 0 && (
                 <ul>
                   <li><h3>TOURNAMENT(S)</h3></li>
                   {
