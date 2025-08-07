@@ -2,7 +2,7 @@ import PageLayout from "@/Components/PageLayout/PageLayout";
 import config from "@/config";
 import style from './football.module.css';
 import Link from "next/link";
-import { TManagers, TPlayers, TTeam, TTeamsList } from './types';
+import { TManagers, TPlayers, TTeam, TTeamsList, TTournaments } from './types';
 import LoginForm from "@/Components/Footballl/LoginForm/LoginForm";
 
 type TSearchBody = {
@@ -95,8 +95,8 @@ export default async function Football({searchParams}: TParams) {
                 <ul>
                   <li><h3>TOURNAMENT(S)</h3></li>
                   {
-                    teamsResult?.managers?.map((manager: TManagers) => {
-                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/tournament?tourId=${123}`}>{`${manager.m_name}`}</Link></li>) 
+                    teamsResult?.tournaments?.map((tournament: TTournaments) => {
+                      return (<li key={`${tournament.tour_name}-${tournament.tour_key}`}><Link href={`/tournament?tourId=${123}`}>{`${tournament.tour_name} (${tournament.tour_key})`}</Link></li>) 
                     })
                   }
                 </ul>
