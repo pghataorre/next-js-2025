@@ -34,16 +34,26 @@ export default async function Football({searchParams}: TParams) {
   const params: TSearchBody | undefined = {teamId: searchParams.teamId || undefined};
   const teamsResult = await getTeams(params.teamId);
 
+  const getTeamName = (teams: TTeam[], teamId: string | undefined) => {
+    if (!teams || !teamId) return '';
+
+    const team = teams.filter((item) => item.teamid === teamId)[0];
+    return team.name;
+  }
+
+  const teamName = teamsResult?.teams ? getTeamName(teamsResult.teams, params.teamId) : '';
+
   return (
     <PageLayout>
         {!teamsResult ? (
             <h2>L o a d i n g</h2>
         ) : (
           <>  
-            <h2><span>FOOTBALL LEAGUE</span></h2>
+            <h2>FOOTBALL LEAGUE</h2>
             <div className={style['teams-container']}>
               <LoginForm />
               <div className={style['team-details']}>
+              <h2>{teamName}</h2>
               {teamsResult?.teams.length > 0 && (
                 <ul>
                   <li><h3>TEAMS</h3></li>
@@ -70,7 +80,18 @@ export default async function Football({searchParams}: TParams) {
 
               {teamsResult?.managers !== undefined && teamsResult?.managers.length > 0 && (
                 <ul>
-                  <li><h3>MANAGERS</h3></li>
+                  <li><h3>MANAGER(S)</h3></li>
+                  {
+                    teamsResult?.managers?.map((manager: TManagers) => {
+                      return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?managerId=${123}`}>{`${manager.m_name}`}</Link></li>) 
+                    })
+                  }
+                </ul>
+              )}
+
+              {teamsResult?.tournaments !== undefined && teamsResult?.tournaments.length > 0 && (
+                <ul>
+                  <li><h3>TOURNAMENT(S)</h3></li>
                   {
                     teamsResult?.managers?.map((manager: TManagers) => {
                       return (<li key={`${manager.m_name}-${manager.iscurrent}`}><Link href={`/managers?playerId=${123}`}>{`${manager.m_name}`}</Link></li>) 
