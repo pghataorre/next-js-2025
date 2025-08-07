@@ -96,7 +96,7 @@ export default async function Football({searchParams}: TParams) {
                   <li><h3>TOURNAMENT(S)</h3></li>
                   {
                     teamsResult?.tournaments?.map((tournament: TTournaments) => {
-                      return (<li key={`${tournament.tour_name}-${tournament.tour_key}`}><Link href={`/tournament?tourId=${123}`}>{`${tournament.tour_name} (${tournament.tour_key})`}</Link></li>) 
+                      return (<li key={`${tournament.tour_name}-${tournament.tour_key}`}><Link href={`/tournament?tourId=${tournament.tourid}`}>{`${tournament.tour_name} (${tournament.tour_key})`}</Link></li>) 
                     })
                   }
                 </ul>
