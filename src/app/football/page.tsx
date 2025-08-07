@@ -34,8 +34,6 @@ export default async function Football({searchParams}: TParams) {
   const params: TSearchBody | undefined = {teamId: searchParams.teamId || undefined};
   const teamsResult = await getTeams(params.teamId);
 
-  console.warn('teamsResult ---------', teamsResult);
-
   const getTeamName = (teams: TTeam[], teamId: string | undefined) => {
     if (!teams || !teamId) return '';
 
@@ -56,7 +54,7 @@ export default async function Football({searchParams}: TParams) {
               <LoginForm />
               <div className={style['team-details']}>
 
-              {teamsResult?.teams.length > 0 && (
+              {teamsResult?.teams && (
                 <ul>
                   <li><h3>TEAMS</h3></li>
                   {
@@ -67,7 +65,7 @@ export default async function Football({searchParams}: TParams) {
                 </ul>
               )}
 
-              {teamsResult?.players !== undefined && teamsResult?.players.length > 0 && 
+              {teamsResult?.players && 
               
                 (<ul>
                   <li><h3>PLAYERS</h3></li>
@@ -80,7 +78,7 @@ export default async function Football({searchParams}: TParams) {
               )}
 
 
-              {teamsResult?.managers !== undefined && teamsResult?.managers.length > 0 && (
+              {teamsResult?.managers && (
                 <ul>
                   <li><h3>MANAGER(S)</h3></li>
                   {
@@ -91,7 +89,7 @@ export default async function Football({searchParams}: TParams) {
                 </ul>
               )}
 
-              {teamsResult?.tournaments !== undefined && teamsResult?.tournaments.length > 0 && (
+              {teamsResult?.tournaments && (
                 <ul>
                   <li><h3>TOURNAMENT(S)</h3></li>
                   {
